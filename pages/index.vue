@@ -5,13 +5,12 @@
     <!-- 页面主题部分 -->
   <div class="container">
       <div class="section">
-      <div class="columns">
+      <div class="columns margin5"> 
         <div class="column is-three-quarters">
-           <figure class="image is-3by1">
-            <img src="https://bulma.io/images/placeholders/128x128.png">
-          </figure>
+          <!-- 滑动组件 -->
+          <swiper></swiper>
           <!-- 内容缩略图 -->
-          <box></box>
+          <box v-for="(list,idx) in item" :key="idx" @click.native="checkArticle(idx)"></box>
         </div>
         <!-- 右侧导航 -->
         <div class="column">
@@ -22,6 +21,8 @@
   </div>
     <!-- 页面底部footer -->
     <btmfooter></btmfooter>
+     <!-- 内容弹窗 -->
+    <modal></modal>
   </div>
 </template>
 
@@ -30,16 +31,34 @@ import box from '~/components/box.vue';
 import rightnav from '~/components/rightNav.vue';
 import btmfooter from "~/components/footer.vue";
 import topnav from "~/components/topnav.vue";
+import modal from "~/components/modal.vue";
+import swiper from "~/components/swiper.vue";
 
 export default {
   components: {
     box,
     rightnav,
     btmfooter,
-    topnav
+    topnav,
+    modal,
+    swiper
+  },
+  data(){
+    return {
+      item:[1,2,4,5,6,7]
+    }
+  },
+  methods:{
+    checkArticle:function(id){
+      console.log(id);
+      this.$router.push({path:`/article/${id}`});
+    }
   }
 }
 </script>
 
-<style lang='less'>
+<style scoped>
+  .margin5{
+    margin-top: 5px;
+  }
 </style>

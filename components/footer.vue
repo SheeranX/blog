@@ -9,8 +9,12 @@
       </div>
     </footer>
 </template>
-<style>
-
+<style scoped>
+  .footer{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
 </style>
 <script>
     

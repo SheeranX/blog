@@ -30,7 +30,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    'bulma/css/bulma.min.css'
+    'bulma/css/bulma.min.css',
   ],
 
   /*

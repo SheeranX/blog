@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="box-container">
          <div class="box">
             <article class="media">
               <div class="media-left">
@@ -22,14 +22,15 @@
                   <div class="level-left">
                     <a
                       class="level-item"
-                      aria-label="reply"
+                      aria-label="eye"
                     >
                       <span class="icon is-small">
                         <i
-                          class="fas fa-reply"
+                          class="fas fa-eye"
                           aria-hidden="true"
                         ></i>
                       </span>
+                        <span>12</span>
                     </a>
                     <a
                       class="level-item"
@@ -37,10 +38,11 @@
                     >
                       <span class="icon is-small">
                         <i
-                          class="fas fa-retweet"
+                          class="fas fa-comment"
                           aria-hidden="true"
                         ></i>
                       </span>
+                       <span>12</span>
                     </a>
                     <a
                       class="level-item"
@@ -52,6 +54,7 @@
                           aria-hidden="true"
                         ></i>
                       </span>
+                       <span>12</span>
                     </a>
                   </div>
                 </nav>
@@ -63,6 +66,11 @@
 <script>
     
 </script>
-<style>
-
+<style scoped>
+.box-container{
+  margin-top: 10px;
+}
+.box-container:hover{
+  cursor: pointer;
+}
 </style>

@@ -1,5 +1,6 @@
 <template>
-  <nav
+ <div class="top-bar">
+    <nav
     class="navbar is-light"
     role="navigation"
     aria-label="main navigation"
@@ -38,9 +39,8 @@
         <a class="navbar-item">
           首页
         </a>
-
         <a class="navbar-item">
-          内容1
+          内容1 
         </a>
 
         <div class="navbar-item has-dropdown is-hoverable">
@@ -69,20 +69,44 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-primary">
+            <a class="button is-primary" @click="openModal">
               <strong>关于我</strong>
             </a>
-            <a class="button is-light">
+            <!-- <a class="button is-light">
               Log in
-            </a>
+            </a> -->
           </div>
         </div>
       </div>
     </div>
     </div>
   </nav>
+ </div>
 </template>
-<style>
+<style scoped>
+  .top-bar{
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .1);
+  }
 </style>
 <script>
+import bus from '~/plugins/eventBus.js';
+
+ export default {
+     data:function(){
+         return {
+
+         }
+     },
+     mounted() {
+          
+     },
+    methods:{
+        openModal:function(){
+            bus.$emit('openModal','is-active');
+        }
+    }
+ }  
 </script>
