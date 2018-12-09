@@ -13,7 +13,7 @@
         </span>
       </div>
       <div class="pagenation">
-        <div class="pagenation-item" v-for="(val,idx) in item" :key="idx"></div>
+        <div class="pagenation-item" v-for="(val,idx) in item" :key="idx" :class="currentIdx==idx?'pagenation-active':''"></div>
       </div>
     </figure>
   </div>
@@ -65,22 +65,22 @@ export default {
   z-index: 1;
 }
 .pagenation{
-  position: absolute;
+  position: relative;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   justify-content: center;
   bottom: 10px;
-  z-index: 999;
+  z-index: 1;
 }
 .pagenation .pagenation-item{
   width: 25px;
   height: 1px;
-  border: 1px solid #fff;
+  border: 1px solid hsla(0,0%,47%,.4);
   margin: 2px;
   border-radius: 2px;
 }
 .pagenation-active{
-  border: 1px solid hsla(0,0%,47%,.4);
+  border: 1px solid #fff!important;
 }
 </style>
