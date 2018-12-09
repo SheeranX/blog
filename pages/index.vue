@@ -21,8 +21,6 @@
   </div>
     <!-- 页面底部footer -->
     <btmfooter></btmfooter>
-     <!-- 内容弹窗 -->
-    <modal></modal>
   </div>
 </template>
 
@@ -31,7 +29,6 @@ import box from '~/components/box.vue';
 import rightnav from '~/components/rightNav.vue';
 import btmfooter from "~/components/footer.vue";
 import topnav from "~/components/topnav.vue";
-import modal from "~/components/modal.vue";
 import swiper from "~/components/swiper.vue";
 
 export default {
@@ -40,7 +37,6 @@ export default {
     rightnav,
     btmfooter,
     topnav,
-    modal,
     swiper
   },
   data(){

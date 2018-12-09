@@ -1,5 +1,5 @@
 <template>
-     <div class="modal" :class="active">
+     <div class="modal is-active" v-show="visible">
       <div class="modal-background" @click="close"></div>
       <div class="modal-content">
         <!-- Any other Bulma elements you want -->
@@ -10,24 +10,32 @@
 <style scoped>
 </style>
 <script>
-import bus from "~/plugins/eventBus.js";
 export default {
-         data:function(){
-             return {
-                 active:""
-             }
-         },
+         props: {
+            value: {
+                type: Boolean,
+                default: false
+            }
+        },
+        data(){
+            return {
+                visible:this.value
+            }
+        },
          mounted() {
              let _this = this;
-             bus.$on('openModal',function(msg){
-                 _this.active = msg
-             })
          },
          methods:{
              close:function(){
                  let _this = this;
-                 _this.active = "";
+                 _this.visible = false;
+                 _this.$emit('input',false);
              }
+         },
+         watch:{
+             value (val) {
+                this.visible = val;
+            },
          }
 
      }

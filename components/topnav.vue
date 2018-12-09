@@ -69,7 +69,7 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-primary" @click="openModal">
+            <a class="button is-primary" @click="isActive=true">
               <strong>关于我</strong>
             </a>
             <!-- <a class="button is-light">
@@ -81,6 +81,8 @@
     </div>
     </div>
   </nav>
+   <!-- 内容弹窗 -->
+    <modal v-model="isActive"></modal>
  </div>
 </template>
 <style scoped>
@@ -92,21 +94,20 @@
   }
 </style>
 <script>
-import bus from '~/plugins/eventBus.js';
-
+import modal from '~/components/modal.vue';
  export default {
+    components:{
+      modal
+    },
      data:function(){
          return {
-
+           isActive:false
          }
      },
      mounted() {
           
      },
     methods:{
-        openModal:function(){
-            bus.$emit('openModal','is-active');
-        }
     }
  }  
 </script>
