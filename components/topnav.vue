@@ -7,16 +7,16 @@
   >
     <div class="container">
           <div class="navbar-brand">
-      <a
+      <nuxt-link to="/"
         class="navbar-item"
-        href="https://bulma.io"
+        href=""
       >
         <img
           src="https://bulma.io/images/bulma-logo.png"
           width="112"
           height="28"
         >
-      </a>
+      </nuxt-link>
 
       <a
         role="button"
