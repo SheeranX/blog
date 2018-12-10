@@ -89,7 +89,7 @@
   .top-bar{
     position: fixed;
     width: 100%;
-    z-index: 9;
+    z-index: 999;
     box-shadow: 0 5px 5px rgba(0, 0, 0, .1);
   }
 </style>
@@ -108,6 +108,7 @@ import modal from '~/components/modal.vue';
           
      },
     methods:{
+     
     }
  }  
 </script>
