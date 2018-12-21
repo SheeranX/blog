@@ -17,13 +17,12 @@
           height="28"
         >
       </nuxt-link>
-
       <a
         role="button"
         class="navbar-burger burger"
         aria-label="menu"
         aria-expanded="false"
-        data-target="navbarBasicExample"
+        data-target="navbarBasic"
       >
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -32,7 +31,7 @@
     </div>
 
     <div
-      id="navbarBasicExample"
+      id="navbarBasic"
       class="navbar-menu"
     >
       <div class="navbar-start">
@@ -83,32 +82,33 @@
   </nav>
    <!-- 内容弹窗 -->
     <modal v-model="isActive"></modal>
+    <!-- 左侧栏弹窗 -->
+    <leftbar></leftbar>
  </div>
 </template>
 <style scoped>
-  .top-bar{
-    position: fixed;
-    width: 100%;
-    z-index: 999;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, .1);
-  }
+.top-bar {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+}
 </style>
 <script>
 import modal from '~/components/modal.vue';
- export default {
-    components:{
-      modal
-    },
-     data:function(){
-         return {
-           isActive:false
-         }
-     },
-     mounted() {
-          
-     },
-    methods:{
-     
+import leftbar from '~/components/leftBar.vue';
+export default {
+  components: {
+    modal,
+    leftbar
+  },
+  data: function() {
+    return {
+      isActive: false,
+      isLeft:true
     }
- }  
+  },
+  mounted() {},
+  methods: {}
+}
 </script>

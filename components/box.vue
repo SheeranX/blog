@@ -21,40 +21,40 @@
                 <nav class="level is-mobile">
                   <div class="level-left">
                     <a
-                      class="level-item"
+                      class="level-item has-text-grey is-size-7"
                       aria-label="eye"
                     >
                       <span class="icon is-small">
                         <i
                           class="fas fa-eye"
                           aria-hidden="true"
-                        ></i>
+                        ></i> 
                       </span>
-                        <span>12</span>
+                        <span> 12</span>
                     </a>
                     <a
-                      class="level-item"
+                      class="level-item has-text-grey is-size-7"
                       aria-label="retweet"
                     >
                       <span class="icon is-small">
                         <i
                           class="fas fa-comment"
                           aria-hidden="true"
-                        ></i>
+                        ></i> 
                       </span>
-                       <span>12</span>
+                       <span> 12</span>
                     </a>
                     <a
-                      class="level-item"
+                      class="level-item has-text-grey is-size-7"
                       aria-label="like"
                     >
                       <span class="icon is-small">
                         <i
                           class="fas fa-heart"
                           aria-hidden="true"
-                        ></i>
+                        ></i> 
                       </span>
-                       <span>12</span>
+                       <span> 12</span>
                     </a>
                   </div>
                 </nav>
