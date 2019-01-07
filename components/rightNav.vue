@@ -1,5 +1,5 @@
 <template>
-     <aside class="menu">
+     <aside class="menu is-hidden-mobile">
             <p class="menu-label">
               每日推荐
             </p>
@@ -35,7 +35,6 @@
           </aside>
 </template>
 <style>
-
 </style>
 <script>
     

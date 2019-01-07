@@ -3,7 +3,7 @@ const router = express.Router();
 
 const Article = require("../schema/Article.js");
 
-router.get('/acticle/:id',function(req,res,next){
+router.get('/acticle',function(req,res,next){
     insert(function(){
         res.send('success')
     });

@@ -20,7 +20,7 @@
     </div>
   </div>
     <!-- 页面底部footer -->
-    <btmfooter></btmfooter>
+    <!-- <btmfooter></btmfooter> -->
   </div>
 </template>
 
@@ -30,7 +30,7 @@ import rightnav from '~/components/rightNav.vue';
 import btmfooter from "~/components/footer.vue";
 import topnav from "~/components/topnav.vue";
 import swiper from "~/components/swiper.vue";
-
+import axios from 'axios'
 export default {
   components: {
     box,
@@ -41,13 +41,18 @@ export default {
   },
   data(){
     return {
-      item:[1,2,4,5,6,7]
+      item:[1,2,4,5,6,7],
+      isShow:false
     }
   },
   methods:{
     checkArticle:function(id){
       console.log(id);
       this.$router.push({path:`/article/${id}`});
+      axios.get('/user')
+      .then(res=>{
+        console.log(res);
+      })
     }
   }
 }

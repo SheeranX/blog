@@ -23,6 +23,7 @@
         aria-label="menu"
         aria-expanded="false"
         data-target="navbarBasic"
+        @click="close"
       >
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -83,7 +84,7 @@
    <!-- 内容弹窗 -->
     <modal v-model="isActive"></modal>
     <!-- 左侧栏弹窗 -->
-    <leftbar></leftbar>
+    <leftbar v-model="isLeft"></leftbar>
  </div>
 </template>
 <style scoped>
@@ -105,10 +106,15 @@ export default {
   data: function() {
     return {
       isActive: false,
-      isLeft:true
+      isLeft:false
     }
   },
   mounted() {},
-  methods: {}
+  methods: {
+    close(){
+      this.isLeft = true;
+      console.log('++');
+    }
+  }
 }
 </script>

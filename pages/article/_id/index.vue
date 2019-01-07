@@ -92,9 +92,7 @@ export default {
   mounted() {
     this.id = this.$route.params.id;
 
-    getArticle({
-        id:0
-    })
+    getArticle()
     .then(res=>{
         console.log(res);
     })
