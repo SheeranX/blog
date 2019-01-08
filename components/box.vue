@@ -63,9 +63,6 @@
           </div>
     </div>    
 </template>
-<script>
-    
-</script>
 <style scoped>
 .box-container{
   margin-top: 10px;

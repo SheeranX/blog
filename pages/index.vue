@@ -49,10 +49,10 @@ export default {
     checkArticle:function(id){
       console.log(id);
       this.$router.push({path:`/article/${id}`});
-      axios.get('/user')
-      .then(res=>{
-        console.log(res);
-      })
+      // axios.get('/user')
+      // .then(res=>{
+      //   console.log(res);
+      // })
     }
   }
 }

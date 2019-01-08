@@ -5,17 +5,30 @@ const { Nuxt, Builder } = require('nuxt')
 const app = express()
 const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 3000
-const route = require('./router');
+const main = require('./main');
+
 const bodyParse = require('body-parser');
 
 
 app.use(bodyParse.json())
 app.set('port', port)
 
-app.use('/api',route);
-app.get('/api/user', function (req, res) {
-  res.send('Hello World!')
-})
+app.use('/api',main);
+
+// route.get('/article',function(req,res,next){
+//   console.log('get success');
+//   res.send("get success");
+// });
+// route.use('/api',function(){
+//   consola.log('route use');
+// })
+// app.use('/',route);
+// app.get('/api/user', function (req, res) {
+//   res.send('Hello World!')
+// })
+
+
+
 // Import and Set Nuxt.js options
 let config = require('../nuxt.config.js')
 config.dev = !(process.env.NODE_ENV === 'production')

@@ -3,14 +3,17 @@ const router = express.Router();
 
 const Article = require("../schema/Article.js");
 
-router.get('/acticle',function(req,res,next){
-    insert(function(){
-        res.send('success')
-    });
+router.get('/article',function(req,res,next){
+    // insert(function(){
+    //     console.log('insert success')
+    // })
+    find(function(e){
+        res.send(e);
+    })
 });
 
+
 function insert(fn){
-    debugger
     let article = new Article({
         name:'gone with the wind'
     })
@@ -20,6 +23,16 @@ function insert(fn){
         else
          fn()
     });
+}
+
+function find(fn){
+    let name = {name:"gone with the wind"}
+    Article.find(name,function(err,res){
+       if(err) throw err
+       else
+        fn(res)
+    })
+
 }
 
 module.exports = router
