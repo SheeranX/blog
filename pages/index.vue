@@ -23,7 +23,6 @@
     <!-- <btmfooter></btmfooter> -->
   </div>
 </template>
-
 <script>
 import box from '~/components/box.vue';
 import rightnav from '~/components/rightNav.vue';
