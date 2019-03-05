@@ -49,8 +49,8 @@
           </a>
 
           <div class="navbar-dropdown">
-            <a class="navbar-item">
-              About
+            <a class="navbar-item" @click="goAdmin">
+              admin
             </a>
             <a class="navbar-item">
               Jobs
@@ -109,11 +109,16 @@ export default {
       isLeft:false
     }
   },
-  mounted() {},
+  mounted() {
+
+  },
   methods: {
     close(){
       this.isLeft = true;
       console.log('++');
+    },
+    goAdmin(){
+      this.$router.push({path:'/admin'});
     }
   }
 }

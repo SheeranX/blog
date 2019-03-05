@@ -1,0 +1,30 @@
+.f-row{
+    display: flex;
+    flex-direction: flex;
+    box-sizing: border-box;
+}
+.f-column{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+.j-center{
+    justify-content: center;
+}
+.a-center{
+    align-items: center;  
+}
+
+.font14{
+    font-size: 14px;
+}
+.font16{
+    font-size: 16px;
+}
+.font18{
+    font-size:18px;
+}
+.font20{
+    font-size: 20px;
+}
+

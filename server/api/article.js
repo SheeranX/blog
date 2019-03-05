@@ -26,13 +26,12 @@ function insert(fn){
 }
 
 function find(fn){
-  //  let name = {name:"gone with the wind"}
+    let name = {name:"gone with the wind"}
     Article.find(function(err,res){
        if(err) throw err
        else
-        fn(res)
+        fn(res);
     })
-
 }
 
 module.exports = router

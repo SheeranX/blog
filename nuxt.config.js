@@ -14,7 +14,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ],
     script:[
       //{src:"https://use.fontawesome.com/releases/v5.3.1/js/all.js"}
@@ -24,21 +24,23 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: '#87cefa' },
 
   /*
   ** Global CSS
   */
   css: [
     'bulma/css/bulma.min.css',
+    '~/assets/styles/global.css'
   ],
 
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    {src:"~/plugins/editor.js",ssr:false}
   ],
-
+  vendor: ['wangeditor'],
   /*
   ** Nuxt.js modules
   */
