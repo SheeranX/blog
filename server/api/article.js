@@ -26,8 +26,8 @@ function insert(fn){
 }
 
 function find(fn){
-    let name = {name:"gone with the wind"}
-    Article.find(name,function(err,res){
+  //  let name = {name:"gone with the wind"}
+    Article.find(function(err,res){
        if(err) throw err
        else
         fn(res)
