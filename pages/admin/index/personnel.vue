@@ -103,7 +103,7 @@ export default {
     data() {
         return {
             form:{
-                usrname:"",
+                username:"",
                 name:"",
                 nickname:"",
                 email:"",

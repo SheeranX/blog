@@ -11,6 +11,8 @@ router.post("/personnel",(req,res,next)=>{
 });
 
 let insert = (data,fn)=>{
+
+    
     let personnel = new Personnel({
         uesrname : data.body.username,
         nickname:data.body.nickname,
