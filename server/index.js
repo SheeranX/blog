@@ -15,20 +15,6 @@ app.set('port', port)
 
 app.use('/api',main);
 
-// route.get('/article',function(req,res,next){
-//   console.log('get success');
-//   res.send("get success");
-// });
-// route.use('/api',function(){
-//   consola.log('route use');
-// })
-// app.use('/',route);
-// app.get('/api/user', function (req, res) {
-//   res.send('Hello World!')
-// })
-
-
-
 // Import and Set Nuxt.js options
 let config = require('../nuxt.config.js')
 config.dev = !(process.env.NODE_ENV === 'production')

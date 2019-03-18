@@ -35,13 +35,15 @@ let http = {
         })
     },
     post:(url,params)=>{
-      axios.post(url,params)
-      .then(res=>{
-        resolve(res)
-      })
-      .catch(error=>{
-        reject(error);
-      })
+       return new Promise((resolve,reject)=>{
+        axios.post(url,params)
+        .then(res=>{
+          resolve(res)
+        })
+        .catch(error=>{
+          reject(error);
+        })
+       })
     }
 }
 

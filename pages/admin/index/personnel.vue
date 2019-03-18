@@ -5,14 +5,14 @@
             <div class="field">
                 <label class="label">用户名：</label>
                 <div class="control">
-                    <input class="input" type="text" placeholder="Text input">
+                    <input class="input" type="text" placeholder="Text input" v-model="form.username">
                 </div>
             </div>
             <!-- 姓名，真实姓名 -->
             <div class="field">
                 <label class="label">姓名：</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input class="input is-success" type="text" placeholder="请输入真实姓名..." value="">
+                    <input class="input is-success" type="text" placeholder="请输入真实姓名..." value="" v-model="form.name">
                     <span class="icon is-small is-left">
                       <i class="fas fa-user"></i>
                     </span>
@@ -26,7 +26,7 @@
              <div class="field">
                 <label class="label">昵称：</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input class="input is-success" type="text" placeholder="请输入昵称..." value="">
+                    <input class="input is-success" type="text" placeholder="请输入昵称..." value="" v-model="form.nickname">
                     <span class="icon is-small is-left">
                       <i class="fas fa-user"></i>
                     </span>
@@ -40,7 +40,7 @@
             <div class="field">
                 <label class="label">邮箱：</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input class="input is-danger" type="email" placeholder="请输入邮箱..." value="">
+                    <input class="input is-danger" type="email" placeholder="请输入邮箱..." value="" v-model="form.email">
                     <span class="icon is-small is-left">
                       <i class="fas fa-envelope"></i>
                     </span>
@@ -54,7 +54,7 @@
             <div class="field">
                 <label class="label">手机号：</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input class="input is-danger" type="text" placeholder="请输入手机号..." value="">
+                    <input class="input is-danger" type="text" placeholder="请输入手机号..." value="" v-model="form.mobile">
                     <span class="icon is-small is-left">
                       <i class="fas fa-mobile"></i>
                     </span>
@@ -69,7 +69,7 @@
                 <label class="label">学位</label>
                 <div class="control">
                     <div class="select">
-                        <select>
+                        <select v-model="form.bachlor">
                             <option>大专</option>
                             <option selected>本科</option>
                             <option>硕士</option>
@@ -82,20 +82,13 @@
             <div class="field">
                 <label class="label">个人介绍：</label>
                 <div class="control">
-                    <textarea class="textarea" placeholder="写点什么吧，不用管文字朴素还是华丽还是逼格高，写就完事了。但是很遗憾的告诉你，字数限制是140字（手动划重点）"></textarea>
-                </div>
-            </div>
-             <!-- 个人介绍 -->
-            <div class="field">
-                <label class="label">个人介绍：</label>
-                <div class="control">
-                    <textarea class="textarea" placeholder="写点什么吧，不用管文字朴素还是华丽还是逼格高，写就完事了。但是很遗憾的告诉你，字数限制是140字（手动划重点）"></textarea>
+                    <textarea class="textarea" v-model="form.introduce" placeholder="写点什么吧，不用管文字朴素还是华丽还是逼格高，写就完事了。但是很遗憾的告诉你，字数限制是140字（手动划重点）"></textarea>
                 </div>
             </div>
             <!-- 操作按钮 -->
             <div class="field is-grouped">
                 <div class="control">
-                    <button class="button is-link" type="button">提交</button>
+                    <button class="button is-link" type="button" @click="submit">提交</button>
                 </div>
                 <div class="control">
                     <button class="button" type="button">取消</button>
@@ -104,3 +97,28 @@
         </form>
     </div>
 </template>
+<script>
+import {savePersonnel} from "@/assets/scripts/getData.js";
+export default {
+    data() {
+        return {
+            form:{
+                usrname:"",
+                name:"",
+                nickname:"",
+                email:"",
+                mobile:"",
+                bachlor:"本科",
+                introduce:"",
+            }
+        }
+    },
+    methods: {
+        submit(){
+            savePersonnel(this.form).then(res=>{
+                console.log(res);
+            });
+        }
+    },
+}
+</script>

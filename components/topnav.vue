@@ -82,7 +82,9 @@
     </div>
   </nav>
    <!-- 内容弹窗 -->
-    <modal v-model="isActive"></modal>
+    <modal v-model="isActive">
+      <p class="has-text-white">我是关于我弹窗</p>
+    </modal>
     <!-- 左侧栏弹窗 -->
     <leftbar v-model="isLeft"></leftbar>
  </div>

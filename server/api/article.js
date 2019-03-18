@@ -3,14 +3,13 @@ const router = express.Router();
 
 const Article = require("../schema/Article.js");
 
+//获取文章信息
 router.get('/article',function(req,res,next){
-    // insert(function(){
-    //     console.log('insert success')
-    // })
     find(function(e){
         res.send(e);
     })
 });
+
 
 
 function insert(fn){

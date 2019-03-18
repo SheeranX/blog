@@ -1,6 +1,6 @@
 <template>
     <div>
-       <editor></editor>
+      x
         我是文档编辑
     </div>
 </template>
