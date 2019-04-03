@@ -5,14 +5,15 @@
             <div class="field">
                 <label class="label">用户名：</label>
                 <div class="control">
-                    <input class="input" type="text" placeholder="Text input" v-model="form.username">
+                    <input class="input" type="text" placeholder="Text input" v-model.trim="form.username" @blur="check('empty',$event)" name="username" data-text="用户名">
                 </div>
+                <p class="help is-success">专属ID,用于登录</p>
             </div>
             <!-- 姓名，真实姓名 -->
             <div class="field">
                 <label class="label">姓名：</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input class="input is-success" type="text" placeholder="请输入真实姓名..." value="" v-model="form.name">
+                    <input class="input is-success" type="text" placeholder="请输入真实姓名..." value="" v-model.trim="form.name">
                     <span class="icon is-small is-left">
                       <i class="fas fa-user"></i>
                     </span>
@@ -26,7 +27,7 @@
              <div class="field">
                 <label class="label">昵称：</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input class="input is-success" type="text" placeholder="请输入昵称..." value="" v-model="form.nickname">
+                    <input class="input is-success" type="text" placeholder="请输入昵称..." value="" v-model.trim="form.nickname">
                     <span class="icon is-small is-left">
                       <i class="fas fa-user"></i>
                     </span>
@@ -40,7 +41,7 @@
             <div class="field">
                 <label class="label">邮箱：</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input class="input is-danger" type="email" placeholder="请输入邮箱..." value="" v-model="form.email">
+                    <input class="input is-danger" type="email" placeholder="请输入邮箱..." value="" v-model.trim="form.email">
                     <span class="icon is-small is-left">
                       <i class="fas fa-envelope"></i>
                     </span>
@@ -54,7 +55,7 @@
             <div class="field">
                 <label class="label">手机号：</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input class="input is-danger" type="text" placeholder="请输入手机号..." value="" v-model="form.mobile">
+                    <input class="input is-danger" type="text" placeholder="请输入手机号..." value="" v-model.trim="form.mobile">
                     <span class="icon is-small is-left">
                       <i class="fas fa-mobile"></i>
                     </span>
@@ -82,7 +83,7 @@
             <div class="field">
                 <label class="label">个人介绍：</label>
                 <div class="control">
-                    <textarea class="textarea" v-model="form.introduce" placeholder="写点什么吧，不用管文字朴素还是华丽还是逼格高，写就完事了。但是很遗憾的告诉你，字数限制是140字（手动划重点）"></textarea>
+                    <textarea class="textarea" v-model.trim="form.introduce" placeholder="写点什么吧，不用管文字朴素还是华丽还是逼格高，写就完事了。但是很遗憾的告诉你，字数限制是140字（手动划重点）"></textarea>
                 </div>
             </div>
             <!-- 操作按钮 -->
@@ -95,6 +96,11 @@
                 </div>
             </div>
         </form>
+        <div class="message is-danger">
+            <div class="message-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Nullam gravida purus diam, eefficitur. Aenean aces sem.
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -118,7 +124,43 @@ export default {
             savePersonnel(this.form).then(res=>{
                 console.log(res);
             });
+        },
+        check(type,$event){
+            console.log($event);
+            let val = $event.target.value;
+            let text = $event.target.dataset.text;
+            let typeArr = type.split(',');
+            if(Array.isArray(typeArr) && typeArr.length>0)
+            {
+                typeArr.forEach(item => {
+                    switch(item){
+                        case "empty":
+                            if(val==''||val==null)
+                                alert(text+"不能为空");
+                                return
+                            break
+                        case "unique":
+                            alert(text+"唯一");
+                            return
+                            break
+                        case "format":
+                            alert(text+"格式不正确");
+                            return
+                            break
+                    }
+                });
+            }
+            console.log($event);
         }
     },
 }
 </script>
+<style>
+    .message{
+        position: fixed;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 300px;
+    }
+</style>

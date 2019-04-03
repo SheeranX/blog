@@ -38,9 +38,16 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    {src:"~/plugins/editor.js",ssr:false}
+    {
+      src:"~/plugins/editor.js",
+      ssr:false
+    },
+    {
+      src: "~/plugins/layer.js",
+      ssr: false
+    }
   ],
-  vendor: ['wangeditor'],
+  vendor: ['wangeditor','axios'],
   /*
   ** Nuxt.js modules
   */

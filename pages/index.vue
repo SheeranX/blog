@@ -53,7 +53,10 @@ export default {
       //   console.log(res);
       // })
     }
-  }
+  },
+  mounted() {
+    this.$message.error('halo');
+  },
 }
 </script>
 
