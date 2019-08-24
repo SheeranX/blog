@@ -30,10 +30,19 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    'bulma/css/bulma.min.css',
-    '~/assets/styles/global.css'
+    {
+      src: '~/node_modules/bulma/bulma.sass',
+      lang: 'scss'
+    },
+    '~/assets/styles/global.css',
+    {
+      src: '~/assets/styles/sass/variable.scss',
+      lang: 'scss'
+    }
   ],
-
+  router: {
+    middleware: 'error'
+  },
   /*
   ** Plugins to load before mounting the App
   */
@@ -45,9 +54,12 @@ module.exports = {
     {
       src: "~/plugins/layer.js",
       ssr: false
+    },
+    {
+      src: "~/plugins/axios.js",
     }
   ],
-  vendor: ['wangeditor','axios'],
+  vendor: ['axios'],
   /*
   ** Nuxt.js modules
   */

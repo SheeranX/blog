@@ -3,37 +3,15 @@
         <p class="title font16 has-text-white">
             <span>后台管理系统</span>
         </p>
-        <div class="f-row a-center" @click="linkTo('/admin/personnel')">
+        <div class="f-row a-center" @click="linkTo(baseUrl+item.link,index)"
+         v-for="(item,index) in list" :key="index" :class="item.isActive?'isActive':''"
+        >
             <span>
                 <span class="icon">
-                 <i class="fas fa-info-circle"></i>
+                 <i :class="item.icon"></i>
                 </span>
             </span>
-            <span class="font14 padding-left">个人信息</span>
-        </div>
-         <div class="f-row a-center" @click="linkTo('/admin/articleManager')">
-            <span>
-                <span class="icon">
-                 <i class="fas fa-file"></i>
-                </span>
-            </span>
-            <span class="font14 padding-left">文章信息</span>
-        </div>
-         <div class="f-row a-center">
-            <span>
-                <span class="icon">
-                 <i class="fas fa-chart-line"></i>
-                </span>
-            </span>
-            <span class="font14 padding-left">数据统计</span>
-        </div>
-         <div class="f-row a-center">
-            <span>
-                <span class="icon">
-                 <i class="fas fa-location-arrow"></i>
-                </span>
-            </span>
-            <span class="font14 padding-left">导航信息</span>
+            <span class="font14 padding-left">{{item.text}}</span>
         </div>
     </div>
 </template>
@@ -71,6 +49,9 @@
         cursor: pointer;
         transition: all ease .5s;
     }
+    .isActive{
+        background: #26282e;
+    }
     .padding-left{
         padding-left: 10px;
     }
@@ -79,9 +60,58 @@
 export default {
     name:"leftnav",
     methods: {
-        linkTo(url){
-            this.$router.push({path:url})
+        linkTo(url,index){
+            this.list.map((item,idx) => {
+                if (idx === index) 
+                    item.isActive = true;
+                else
+                    item.isActive = false;
+            })
+            this.$router.replace({path:url});
+           // this.navIdx = index;
         }
+    },
+    props: ['defaultNav'],
+    data() {
+        return {
+           // navIdx: this.defaultNav,
+            baseUrl: '/admin',
+            list: [
+                {
+                    name: 'personnelInfo',
+                    text: '个人信息',
+                    link: '/personnel',
+                    icon: 'fas fa-info-circle',
+                    isActive: false
+                },
+                {
+                    name: 'acticleInfo',
+                    text: '文章信息',
+                    link: '/articleManager',
+                    icon: 'fas fa-info-circle',
+                    isActive: false
+                },
+                {
+                    name: 'dataInfo',
+                    text: '数据统计',
+                    link: 'fas fa-chart-line',
+                    isActive: false
+                },
+                {
+                    name: 'navigatorInfo',
+                    text: '导航信息',
+                    icon: 'fas fa-location-arrow',
+                    isActive: false,
+                }
+            ]
+        }
+    },
+    mounted() {
+        let path = this.$route.fullPath;
+        this.list.map( (item,index) => {
+            if(`${this.baseUrl+item.link}` === path)
+               item.isActive = true;
+        })
     },
 }
 </script>

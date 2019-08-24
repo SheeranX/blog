@@ -39,6 +39,7 @@ const Layer = (options) => {
             };
         }
         options.type = type;
+        //创建子类
         return Layer(options)
     }
 });
@@ -59,10 +60,10 @@ Layer.closeAll = () => {
 }
 
 const install = function(Vue,options){
-    Vue.component(Layer);
+    //Vue.component(Layer);
     Vue.prototype.$message = Layer;
 }
 if (typeof window !== 'undefined' && window.Vue) {
     install(window.Vue);
-  }
+}
 export default install;

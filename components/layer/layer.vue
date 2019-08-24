@@ -1,12 +1,12 @@
 <template>
     <div class="layer has-background-white br-5" 
-     :class="`border-${typeClass}`"
+     :class="`border-${typeClass} bs-${typeClass}`"
      v-show="visiable"
      @mouseenter="clearTimer"
      @mouseleave="startTimer"
      >
         <div class="layer-content f-row a-center j-center">
-            <p>{{message}}</p>
+            <p class="has-text-grey">{{message}}</p>
         </div>
     </div>
 </template>
@@ -18,10 +18,10 @@
         transform: translateX(-50%);
         z-index: 999999;
         padding: 10px;
-        box-shadow:0 0 10px rgba(0, 0, 0, .1) inset;
+        box-shadow:0 0 10px rgba(0, 0, 0, .1);
     }
     .layer-content{
-        height: 30px;
+        height: 20px;
         width: 300px;
     }
 </style>
@@ -38,7 +38,7 @@ export default {
         return {
             visiable: false,
             message: '',
-            duration:2000,
+            duration: 2000,
             type: 'info',
             timer: null,
             dangerouslyUseHTMLString: false,
@@ -59,6 +59,7 @@ export default {
     methods: {
         handleAfterLeave(){
             //To-Do 
+            this.$destroy(true);
             this.$el.parentNode.removeChild(this.$el);
         },
         close(){

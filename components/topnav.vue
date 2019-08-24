@@ -117,7 +117,6 @@ export default {
   methods: {
     close(){
       this.isLeft = true;
-      console.log('++');
     },
     goAdmin(){
       this.$router.push({path:'/admin'});

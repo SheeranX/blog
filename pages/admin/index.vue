@@ -2,7 +2,7 @@
     <div>
         <topbar></topbar>
         <div class="container">
-            <leftnav></leftnav>
+            <leftnav :defaultNav='defaultNav'></leftnav>
             <div class="content">
                <nuxt-child/>
             </div>
@@ -17,8 +17,16 @@ export default {
         topbar,
         leftnav
     },
+    data() {
+        return {
+            defaultNav : 0
+        }
+    },
     mounted() {
+      // console.log(this.$route);
+      if(this.$route.fullPath === '/admin') {
         this.$router.push({path:'/admin/personnel'});
+      }
     },
 }
 </script>

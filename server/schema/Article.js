@@ -2,7 +2,8 @@ const mongoose = require('../db.js'),
    Scheme = mongoose.Schema;
 
    let ArticleSchema = new Scheme({
-       id : {type : String},
+       articleId : {type : String},
+       authorId: {type: String},
        name : {type : String},
    })
 

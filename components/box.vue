@@ -1,5 +1,5 @@
 <template>
-    <div class="box-container">
+    <div class="box-container" :class="type == 'listBox'?'':'has-background-white-ter'">
          <div class="box">
             <article class="media">
               <div class="media-left">
@@ -13,12 +13,12 @@
               <div class="media-content">
                 <div class="content">
                   <p>
-                    <strong>刑法改革</strong> <small>2018-02-11</small> <small>31m</small>
+                    <strong>刑法改革</strong> <span v-if="type == 'listBox'"><small>2018-02-11</small> <small>31m</small></span>
                     <br>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
                   </p>
                 </div>
-                <nav class="level is-mobile">
+                <nav class="level is-mobile" v-if="type == 'listBox'">
                   <div class="level-left">
                     <a
                       class="level-item has-text-grey is-size-7"
@@ -71,3 +71,29 @@
   cursor: pointer;
 }
 </style>
+<script>
+import { getProfileData } from '~/assets/scripts/getData.js'
+export default {
+    props: {
+      articleID: {
+        type: String,
+        required: true
+      },
+      type: {
+        type: String,
+        default: 'listBox'
+      }
+    },
+    data() {
+        return {
+            boxData: {}
+        }
+    },
+    mounted() {
+        let id = this.articleID;
+        getProfileData(id).then(res => {
+            this.boxData = res;
+        });
+    },
+}
+</script>

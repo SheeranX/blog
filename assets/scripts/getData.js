@@ -1,5 +1,4 @@
 import http from '~/plugins/axios';
-
 const URL = "http://127.0.0.1:3000";
 
 /**
@@ -7,6 +6,10 @@ const URL = "http://127.0.0.1:3000";
  */
 export const getArticle = async function(params){
     return  await http.get('/api/front/article',params); 
+}
+
+export const getProfileData = async (articleId) => {
+    return await http.get('/api/front/profileBox');
 }
 
 /**
