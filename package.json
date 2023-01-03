@@ -18,7 +18,7 @@
     "express": "^4.16.3",
     "mongodb": "^3.1.10",
     "mongoose": "^5.3.15",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.15.8"
   },
   "devDependencies": {
     "eslint-config-prettier": "^3.1.0",
